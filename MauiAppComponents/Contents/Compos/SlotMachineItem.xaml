@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiAppComponents.Models"
+             xmlns:vm="clr-namespace:MauiAppComponents.Contents.Compos.ViewModels"
+             x:DataType="vm:SlotMachineItemViewModel"
+             x:Class="MauiAppComponents.Contents.Compos.SlotMachineItem">
+
+    <Grid RowDefinitions="100" ColumnDefinitions="100">
+        <CollectionView
+            x:Name="SlotCollectionView"
+            Scrolled="CollectionView_Scrolled"
+            ItemsSource="{Binding SlotItems, Mode=TwoWay}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:SlotItem">
+                    <Label
+                        Text="{Binding ValuePicked, Mode=TwoWay}"
+                        Margin="4"
+                        Padding="8"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        FontSize="48" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentView>
